@@ -46,18 +46,26 @@ public class Main {
         }
     }
 
+    private static void addRecord(Record r) {
+        r.askInfo();
+        records.add(r);
+        System.out.println("Created: " + r);
+    }
+
     private static void createRecord() {
         var type = Asker.askString("Record type");
         switch (type) {
             case "person":
-                var r = new Person();
-                r.askInfo();
-                records.add(r);
+                addRecord(new Person());
                 break;
             case "book":
-                var b = new Book();
-                b.askInfo();
-                records.add(b);
+                addRecord(new Book());
+                break;
+            case "note":
+                addRecord(new Note());
+                break;
+            case "alarm":
+                addRecord(new Alarm());
                 break;
             default:
                 System.out.println("Wrong record type");
