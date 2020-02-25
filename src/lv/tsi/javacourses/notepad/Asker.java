@@ -11,7 +11,7 @@ public class Asker {
     }
 
     public static int askInt(String msg) {
-        System.out.println(msg + ": ");
+        System.out.print(msg + ": ");
         return scan.nextInt();
     }
 }
