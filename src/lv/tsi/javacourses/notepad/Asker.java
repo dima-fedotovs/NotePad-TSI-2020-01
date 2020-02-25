@@ -10,4 +10,8 @@ public class Asker {
         return scan.next();
     }
 
+    public static int askInt(String msg) {
+        System.out.println(msg + ": ");
+        return scan.nextInt();
+    }
 }

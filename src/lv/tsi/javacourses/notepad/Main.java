@@ -22,10 +22,21 @@ public class Main {
                 case "list":
                     listRecords();
                     break;
+                case "delete":
+                case "del":
+                case "remove":
+                case "rm":
+                    removeRecord();
+                    break;
                 default:
                     System.out.println("Wrong command");
             }
         }
+    }
+
+    private static void removeRecord() {
+        var id = Asker.askInt("Enter ID to remove");
+        records.remove(id);
     }
 
     private static void listRecords() {
