@@ -1,5 +1,6 @@
 package lv.tsi.javacourses.notepad;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Asker {
@@ -11,7 +12,14 @@ public class Asker {
     }
 
     public static int askInt(String msg) {
-        System.out.print(msg + ": ");
-        return scan.nextInt();
+        for (;;) {
+            try {
+                System.out.print(msg + ": ");
+                return scan.nextInt();
+            } catch (InputMismatchException e) {
+                var str = scan.next();
+                System.out.println(str + " isn't an integer. Please enter integer value");
+            }
+        }
     }
 }
