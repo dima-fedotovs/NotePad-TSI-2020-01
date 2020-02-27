@@ -1,6 +1,8 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records;
 
-public class Book extends Record {
+import lv.tsi.javacourses.notepad.Asker;
+
+public class Book extends AbstractRecord {
     private String title;
     private String isbn;
     private int pageCount;
@@ -15,14 +17,17 @@ public class Book extends Record {
     }
 
     @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + getId() +
+    public String stringContent() {
+        return super.stringContent() +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", pageCount=" + pageCount +
-                ", author='" + author + '\'' +
-                '}';
+                ", author='" + author + '\'';
+    }
+
+    @Override
+    protected String type() {
+        return "Book";
     }
 
     public String getTitle() {

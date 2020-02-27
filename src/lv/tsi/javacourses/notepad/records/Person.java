@@ -1,6 +1,8 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records;
 
-public class Person extends Record {
+import lv.tsi.javacourses.notepad.Asker;
+
+public class Person extends AbstractRecord {
     private String firstName;
     private String lastName;
     private String phone;
@@ -15,14 +17,17 @@ public class Person extends Record {
     }
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + getId() +
+    public String stringContent() {
+        return super.stringContent() +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+                ", email='" + email + '\'' ;
+    }
+
+    @Override
+    protected String type() {
+        return "Person";
     }
 
     public String getFirstName() {

@@ -1,15 +1,17 @@
 package lv.tsi.javacourses.notepad;
 
+import lv.tsi.javacourses.notepad.records.AbstractRecord;
+
 import java.util.*;
 
 public class RecordDAO {
-    private List<Record> records = new ArrayList<>();
+    private List<AbstractRecord> records = new ArrayList<>();
 
-    public void add(Record rec) {
+    public void add(AbstractRecord rec) {
         records.add(rec);
     }
 
-    public List<Record> getAllRecords() {
+    public List<AbstractRecord> getAllRecords() {
         return Collections.unmodifiableList(records);
     }
 

@@ -1,6 +1,6 @@
 package lv.tsi.javacourses.notepad;
 
-import java.util.List;
+import lv.tsi.javacourses.notepad.records.*;
 
 public class Main {
     private static RecordDAO records = new RecordDAO();
@@ -46,7 +46,7 @@ public class Main {
         }
     }
 
-    private static void addRecord(Record r) {
+    private static void addRecord(AbstractRecord r) {
         r.askInfo();
         records.add(r);
         System.out.println("Created: " + r);
