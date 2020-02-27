@@ -11,6 +11,18 @@ public class Asker {
         return scan.next();
     }
 
+    public static int askInt(String msg, int min, int max) {
+        for (;;) {
+            int result = askInt(msg);
+            if (result < min || result > max) {
+                System.out.printf(
+                "Value should be in range from %d to %d%n", min, max);
+            } else {
+                return result;
+            }
+        }
+    }
+
     public static int askInt(String msg) {
         for (;;) {
             try {

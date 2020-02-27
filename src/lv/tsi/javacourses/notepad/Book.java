@@ -11,7 +11,7 @@ public class Book extends Record {
         title = Asker.askString("Title");
         author = Asker.askString("Author");
         isbn = Asker.askString("ISBN");
-        pageCount = Asker.askInt("Page count");
+        pageCount = Asker.askInt("Page count", 2, Integer.MAX_VALUE);
     }
 
     @Override
