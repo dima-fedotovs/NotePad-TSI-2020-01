@@ -10,7 +10,17 @@ public class Asker {
 
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        return scan.next();
+        var result = new StringBuilder(100);
+        var str = scan.next();
+        result.append(str);
+        if (str.startsWith("\"")) {
+            while (!str.endsWith("\"")) {
+                str = scan.next();
+                result.append(' ').append(str);
+            }
+            result.deleteCharAt(0).deleteCharAt(result.length() - 1);
+        }
+        return result.toString();
     }
 
     public static int askInt(String msg, int min, int max) {
