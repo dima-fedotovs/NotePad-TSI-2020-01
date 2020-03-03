@@ -17,6 +17,16 @@ public class Person extends AbstractRecord {
     }
 
     @Override
+    public boolean contains(String substr) {
+        var tmp = substr.toLowerCase();
+        return super.contains(substr)
+                || firstName.toLowerCase().contains(tmp)
+                || lastName.toLowerCase().contains(tmp)
+                || phone.toLowerCase().contains(tmp)
+                || email.toLowerCase().contains(tmp);
+    }
+
+    @Override
     public String stringContent() {
         return super.stringContent() +
                 ", firstName='" + firstName + '\'' +

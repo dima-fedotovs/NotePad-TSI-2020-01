@@ -28,8 +28,20 @@ public class Main {
                 case "rm":
                     removeRecord();
                     break;
+                case "search":
+                    searchRecords();
+                    break;
                 default:
                     System.out.println("Wrong command");
+            }
+        }
+    }
+
+    private static void searchRecords() {
+        var substr = Asker.askString("Enter substring to find");
+        for (var r : records.getAllRecords()) {
+            if (r.contains(substr)) {
+                System.out.println(r);
             }
         }
     }

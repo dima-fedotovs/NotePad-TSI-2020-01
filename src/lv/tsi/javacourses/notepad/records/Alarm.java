@@ -9,6 +9,12 @@ public class Alarm extends Note {
     private LocalTime time;
 
     @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || StringDateTime.timeToString(time).contains(substr);
+    }
+
+    @Override
     public void askInfo() {
         time = Asker.askTime("time");
         super.askInfo();
