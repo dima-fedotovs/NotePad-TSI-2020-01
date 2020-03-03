@@ -2,6 +2,7 @@ package lv.tsi.javacourses.notepad;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,17 +11,19 @@ public class Asker {
 
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        var result = new StringBuilder(100);
+        var result = new ArrayList<String>();
         var str = scan.next();
-        result.append(str);
+        result.add(str);
         if (str.startsWith("\"")) {
+            result.set(0, str.substring(1));
             while (!str.endsWith("\"")) {
                 str = scan.next();
-                result.append(' ').append(str);
+                result.add(str);
             }
-            result.deleteCharAt(0).deleteCharAt(result.length() - 1);
+            String tmp = str.substring(0, str.length() - 1);
+            result.set(result.size() - 1, tmp);
         }
-        return result.toString();
+        return String.join(" ", result);
     }
 
     public static int askInt(String msg, int min, int max) {
